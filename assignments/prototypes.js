@@ -69,7 +69,27 @@ Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
+//villain
+function Villain(stats) {
+  Humanoid.call(this, stats);
+};
 
+Villain.prototype = Object.create(Humanoid.prototype);
+
+Villain.prototype.threaten = function() {
+  return `${this.name} threatens to kill.`;
+};
+
+//hero
+function Hero(stats) {
+  Humanoid.call(this, stats);
+};
+
+Hero.prototype = Object.create(Humanoid.prototype);
+
+Hero.prototype.defend = function() {
+  return `${this.name} defends against the enemy.`;
+};
 
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -130,6 +150,41 @@ Humanoid.prototype.greet = function() {
     language: 'Elvish',
   });
 
+  const king = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 5,
+    },
+    healthPoints: 30,
+    name: 'Tarlos',
+    team: 'Kesh',
+    weapons: [
+      'Power of Space'
+    ],
+    language: 'Ancient Keshic',
+  });
+
+  const demon = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 3,
+      width: 2,
+      height: 7,
+    },
+    healthPoints: 25,
+    name: 'Ablis',
+    team: 'Otherwhere',
+    weapons: [
+      'Power of Space',
+      'Power of Time',
+      'Power of Mind',
+      'Power of Creatures',
+    ],
+    language: 'every language',
+  });
+
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -140,6 +195,8 @@ Humanoid.prototype.greet = function() {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  console.log(demon.threaten()); //Ablis threatens to kill
+  console.log(king.defend()); //Tarlos defends against the enemy
 
 
   // Stretch task: 
