@@ -77,7 +77,7 @@ function Villain(stats) {
 Villain.prototype = Object.create(Humanoid.prototype);
 
 Villain.prototype.threaten = function() {
-  return `${this.name} threatens to kill.`;
+  return `${this.name} threatens to kill in ${this.language}.`;
 };
 
 //hero
@@ -88,7 +88,7 @@ function Hero(stats) {
 Hero.prototype = Object.create(Humanoid.prototype);
 
 Hero.prototype.defend = function() {
-  return `${this.name} defends against the enemy.`;
+  return `${this.name} defends against the enemy in ${this.language}.`;
 };
 
 /*
