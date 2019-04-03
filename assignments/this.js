@@ -12,7 +12,8 @@
 // Principle 1
 
 // code example for Window Binding
-var x = this;
+
+// var x = this;
 
 // Principle 2
 
@@ -24,22 +25,23 @@ var name = function() {
 // Principle 3
 
 // code example for New Binding
-function Person(greeter) {
-    this.greeting = "Hello";
-    this.greeter = greeter;
-    this.speak =function() {
-    console.log(this.greeting + this.greeter);
-    console.log(this);
-    }
-};
-const emmett = new Person('Emerson');
-const emerson = new Person('Emmett');
 
-emmett.speak();
+// function Person(greeter) {
+//     this.greeting = "Hello";
+//     this.greeter = greeter;
+//     this.speak =function() {
+//     console.log(this.greeting + this.greeter);
+//     console.log(this);
+//     }
+// };
+// const emmett = new Person('Emerson');
+// const emerson = new Person('Emmett');
+
+// emmett.speak();
 
 // Principle 4
 
 // code example for Explicit Binding
 
-emmett.speak.call(emerson);
-emerson.speak.apply(emmett);
+// emmett.speak.call(emerson);
+// emerson.speak.apply(emmett);
